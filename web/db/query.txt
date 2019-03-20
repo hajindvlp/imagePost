@@ -1,0 +1,8 @@
+use image
+
+db.image.insertOne(
+    {
+        "title":"test",
+        "path":"/home/hajin/Desktop/imageSwipe/web/express/public/images/300.png"
+    }
+)

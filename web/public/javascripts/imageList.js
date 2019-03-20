@@ -2,7 +2,7 @@ var fs = require('fs');
 
 function getList(){
     var list;
-    fs.readdirSync("../images").forEach(file => {
+    fs.readdirSync("./public/images").forEach((file) => {
         list+=`<a href="../images/${file}" style="margin:5px"><img src="../images/${file}" height="42" width="42"></a>`;
     });
     return list;

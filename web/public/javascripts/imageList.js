@@ -1,9 +1,9 @@
 var fs = require('fs');
 
 function getList(){
-    var list;
+    var list = '';
     fs.readdirSync("./public/images").forEach((file) => {
-        list+=`<a href="../images/${file}" style="margin:5px"><img src="../images/${file}" height="42" width="42"></a>`;
+        list+=`<a href="../image/${file}" id="imageLink"><img src="../images/${file}" id="imageThumbnail"></a>`;
     });
     return list;
 }
@@ -19,6 +19,10 @@ module.exports = {
                 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
             </head>
             <body>
+                <form class="imageUpload" action="../image/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="newImage" value="upload" multiple>
+                    <input type="submit">
+                </form>
                 ${list}
             </body>
         </html>

@@ -1,6 +1,6 @@
 module.exports = {
     HTML:function(id){
-        var fileName = `../images/${id}.png`;
+        var fileName = `../images/${id}`;
         return `
         <!doctype html>
         <html>
@@ -9,12 +9,16 @@ module.exports = {
                 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
             </head>
             <body>
-                  <div id = "image">
+                  <div id="imageGrid">
                       Rendering...
                   </div>
 
+                  <form class="imageDelete" action="../image/delete/${id}" method="post">
+                      <input type="submit">
+                  </form>
+
                   <script type="text/javascript">
-                      document.getElementById('image').innerHTML = '<img src="${fileName}">';
+                      document.getElementById('imageGrid').innerHTML = '<img src="${fileName}" id="imageDetail">';
                   </script>
             </body>
         </html>

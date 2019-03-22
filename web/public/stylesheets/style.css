@@ -3,17 +3,24 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
 div {
     display: grid;
     height: 100%;
 }
 
-img {
-    max-width: 70%;
-    max-height: 70%;
+#imageDetail{
+    max-width: 600px;
+    max-height: 600px;
     margin: auto;
+}
+
+#imageThumbnail{
+    max-width: 42px;
+    max-height:42px;
+}
+
+#imageLink{
+    width: 42px;
+    height: 42px;
+    margin: 5px;
 }

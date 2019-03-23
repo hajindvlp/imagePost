@@ -3,7 +3,6 @@ var fs = require('fs');
 var path = require('path');
 var md5 = require('md5');
 var multer = require('multer');
-var formidable = require('formidable');
 var router = express.Router();
 var listTemplate = require('../lib/javascripts/imageList.js');
 var detailTemplate = require('../lib/javascripts/imageDetail.js');
@@ -48,7 +47,7 @@ router.get('/upload', (req, res, next) => {
 // upload image process
 router.post('/upload', upload.array('newImage', 1600), (req, res, next) => {
     var files = req.files;
-    res.redirect('/');
+    res.redirect('/image/list');
 });
 
 // see image detail

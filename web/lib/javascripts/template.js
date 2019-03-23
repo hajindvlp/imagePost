@@ -22,18 +22,10 @@ module.exports = {
     getList:function(id){
         var list='';
         var files = fs.readdirSync("./public/images");
-        id = Math.ceil(files.length/40)-id+1;
 
-        console.log(id);
-
-        console.log(-(id-1)*40+files.length);
-
-        for(var i = (id-1)*40 ; i<id*40 && i+(id-1)*40<files.length ; i++)
-        {
-            console.log(files[i]);
-            if(files[i].toString!="undefined")
+        for(var i = files.length-(id-1)*40 ; i>=files.length-id*40 ; i--)
+            if(typeof files[i]!='undefined')
                 list+=`<a href="/image/${files[i]}" id="imageLink"><img src="/images/${files[i]}" id="imageThumbnail"></a>`;
-        }
         return list;
     },
     getListNum:function(){

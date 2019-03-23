@@ -23,7 +23,7 @@ module.exports = {
         var list='';
         var files = fs.readdirSync("./public/images");
 
-        for(var i = files.length-(id-1)*40 ; i>=files.length-id*40 ; i--)
+        for(var i = files.length-(id-1)*40 ; i>files.length-id*40 ; i--)
             if(typeof files[i]!='undefined')
                 list+=`<a href="/image/${files[i]}" id="imageLink"><img src="/images/${files[i]}" id="imageThumbnail"></a>`;
         return list;

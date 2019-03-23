@@ -10,17 +10,25 @@ module.exports = {
                 <link rel="stylesheet" href="/stylesheets/style.css">
             </head>
             <body>
-                  <div id="imageGrid">
-                      Rendering...
-                  </div>
+                <div id="header">
+                    <h1>소혜 데이터베이스</h1>
+                    <img src="/cover.png" alt="cover" class="headImage">
+                    <ul class="navigator">
+                        <li class="category"><a href="/" class="link">홈</a></li>
+                        <li class="category"><a href="/image" class="link">갤러리</a></li>
+                        <li class="category"><a href="/image/upload" class="link">업로드</a></li>
+                    </ul>
+                    <br/>
+                </div>
+                <div id="content">
+                    <div id="imageGrid">
+                        Rendering...
+                    </div>
 
-                  <form class="imageDelete" action="../image/delete/${id}" method="post">
-                      <input type="submit" value="지우기">
-                  </form>
-
-                  <script type="text/javascript">
-                      document.getElementById('imageGrid').innerHTML = '<img src="${fileName}" id="imageDetail">';
-                  </script>
+                    <script type="text/javascript">
+                        document.getElementById('imageGrid').innerHTML = '<img src="${fileName}" id="imageDetail">';
+                    </script>
+                </div>
             </body>
         </html>
         `;

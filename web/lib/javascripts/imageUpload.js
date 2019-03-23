@@ -1,16 +1,5 @@
-var fs = require('fs');
-
-function getList(){
-    var list='';
-    fs.readdirSync("./public/images").forEach((file) => {
-        list+=`<a href="../image/${file}" id="imageLink"><img src="../images/${file}" id="imageThumbnail"></a>`;
-    });
-    return list;
-}
-
 module.exports = {
     HTML:function(){
-        var list = getList();
         return `
         <!doctype html>
         <html>
@@ -29,10 +18,12 @@ module.exports = {
                         <li class="category"><a href="/image" class="link">갤러리</a></li>
                         <li class="category"><a href="/image/upload" class="link">업로드</a></li>
                     </ul>
-                    <br/>
                 </div>
                 <div id="content">
-                    ${list}
+                    <form class="imageUpload" action="../image/upload" method="post" enctype="multipart/form-data">
+                        <input type="file" name="newImage" value="upload" id="upload" size="60" multiple>
+                        <input type="submit" id="button" value="업로드">
+                    </form>
                 </div>
             </body>
         </html>

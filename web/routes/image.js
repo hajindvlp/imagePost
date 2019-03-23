@@ -20,7 +20,6 @@ var upload = multer({ storage:storage });
 
 router.get('/list/:id', (req, res, next) => {
     var id = path.parse(req.params.id).base;
-    console.log(id);
     var source = listTemplate.HTML(id);
     res.send(source.toString());
 });

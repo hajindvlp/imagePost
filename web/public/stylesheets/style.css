@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
+  padding: 5%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin : 5px;
 }
 
 div {
@@ -9,18 +10,18 @@ div {
 }
 
 #imageDetail{
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 80%;
+    max-height: 80%;
     margin: auto;
 }
 
 #imageThumbnail{
-    max-width: 42px;
-    max-height:42px;
+    max-width: 10%;
+    max-height: 10%;
 }
 
 #imageLink{
-    width: 42px;
-    height: 42px;
-    margin: 5px;
+    width: 10%;
+    height: 10%;
+    margin: 1%;
 }

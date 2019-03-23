@@ -2,46 +2,47 @@ var express = require('express');
 var fs = require('fs');
 var path = require('path');
 var md5 = require('md5');
+var multer = require('multer');
 var formidable = require('formidable');
 var router = express.Router();
-var listTemplate = require('../public/javascripts/imageList.js');
-var detailTemplate = require('../public/javascripts/imageDetail.js');
-var uploadTemplate = require('../public/javascripts/upload.js')
+var listTemplate = require('../lib/javascripts/imageList.js');
+var detailTemplate = require('../lib/javascripts/imageDetail.js');
 
+var storage = multer.diskStorage({
+    destination: './public/images',
+    filename: function (req, file, cb){
+        cb(null, md5(file.fieldname+Date.now())+path.extname(file.originalname));
+    }
+});
+
+var upload = multer({ storage:storage });
+
+// list
 router.get('/', (req, res, next) => {
     var source = listTemplate.HTML();
     res.send(source.toString());
 });
 
-
+// delete image
 router.post('/delete/:id', (req, res, next) => {
     var id = path.parse(req.params.id).base;
     fs.unlink(`./public/images/${id}`, (err) => {
         if(err)
             throw err;
     });
-    console.log("delete method");
     res.redirect('../');
 });
 
-/* GET home page. */
+// see image detail
 router.get('/:id', (req, res, next) => {
     var id = path.parse(req.params.id).base;
     var source = detailTemplate.HTML(id);
     res.send(source.toString());
 });
 
-router.post('/upload', (req, res, next) => {
-    var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-        var now  = new Date();
-        var oldpath = files.newImage.path;
-        var newpath = './public/images/'+ md5(files.newImage.name+now);
-        console.log(files);
-        fs.rename(oldpath, newpath, function (err) {
-          if (err) throw err;
-        });
-    });
+// upload image
+router.post('/upload', upload.array('newImage', 500), (req, res, next) => {
+    var files = req.files;
     res.redirect('../image');
 });
 

@@ -20,6 +20,7 @@ body {
 #content{
     background: #FFFFFF;
     padding: 2%;
+    line-height: 150%;
 }
 
 #imageDetail{
@@ -44,9 +45,14 @@ body {
     height: 100%;
 }
 
-#announce{
-    margin:1%;
-    line-height: 150%;
+#listNum{
+    text-align: center;
+    background: #FFFFFF;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 
 .headImage{

@@ -15,7 +15,7 @@ module.exports = {
                   </div>
 
                   <form class="imageDelete" action="../image/delete/${id}" method="post">
-                      <input type="submit">
+                      <input type="submit" value="지우기">
                   </form>
 
                   <script type="text/javascript">

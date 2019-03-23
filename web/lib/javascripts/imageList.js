@@ -21,8 +21,8 @@ module.exports = {
             </head>
             <body>
                 <form class="imageUpload" action="../image/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="newImage" value="upload" multiple>
-                    <input type="submit">
+                    <input type="file" name="newImage" value="upload" id="upload" size="60" multiple>
+                    <input type="submit" id="button" value="업로드">
                 </form>
                 <br/>
                 ${list}
